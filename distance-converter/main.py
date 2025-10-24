@@ -1,33 +1,25 @@
 from tkinter import *
 
-
-def button_clicked():
-    new_text = input.get()
-    my_label.config(text=new_text)
-
-
 window = Tk()
-window.title("My first GUI Program")
-window.minsize(width=500, height=300)
-window.config(padx=20, pady=20)
+window.title("Miles to Kilometer Converter")
 
-# Label
-my_label = Label(text="I Am a Label", font=("Arial", 20, "bold"))
-my_label.config(text="New Text")
-my_label.grid(column=0, row=0)
+miles_input = Entry()
+miles_input.grid(column=1, row=0)
 
-# Button
-button = Button(text="Click Me", command=button_clicked)
-button.grid(column=1, row=1)
+miles_label = Label(text="Miles")
+miles_label.grid(column=2, row=0)
 
-# New Button
-new_button = Button(text="Click Me", command=button_clicked)
-new_button.grid(column=2, row=0)
+is_equal_label = Label(text="is equal to")
+is_equal_label.grid(column=0, row=1)
 
-# Entry
-input = Entry(width=10)
-print(input.get())
-input.grid(column=3, row=2)
+kilometer_result_label = Label(text="0")
+kilometer_result_label.grid(column=1, row=1)
+
+kilometer_label = Label(text="km")
+kilometer_label.grid(column=2, row=1)
+
+calculate_button = Button(text="Calculate")
+calculate_button.grid(column=1, row=2)
 
 # Required to run gui
 window.mainloop()
