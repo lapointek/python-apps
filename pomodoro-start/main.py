@@ -27,7 +27,7 @@ button_start.grid(column=0, row=2)
 button_reset = Button(text="Reset")
 button_reset.grid(column=2, row=2)
 
-check_mark = Label(text="check")
+check_mark = Label(text="✔", fg=GREEN, bg=YELLOW)
 check_mark.grid(column=1, row=3)
 
 timer_text = Label(text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 40))
