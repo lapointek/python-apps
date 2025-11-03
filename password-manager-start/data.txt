@@ -1,3 +1,0 @@
-123 | example@gmail.com | 123234
-asd | example@gmail.com | 123
- | example@gmail.com | 
