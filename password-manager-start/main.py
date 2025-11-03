@@ -132,7 +132,12 @@ def find_password():
     website = website_entry.get()
     with open("data.json") as file:
         data = json.load(file)
-        print(data)
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(
+                title=website, message=f"Email: {email}\nPassword: {password}"
+            )
 
 
 # ---------------------------- UI SETUP ------------------------------- #
