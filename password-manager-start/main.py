@@ -127,6 +127,14 @@ def save():
                 password_entry.delete(0, "end")
 
 
+# ---------------------------- FIND PASSWORD ------------------------------- #
+def find_password():
+    website = website_entry.get()
+    with open("data.json") as file:
+        data = json.load(file)
+        print(data)
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 # window
 window = Tk()
@@ -148,8 +156,8 @@ password_label = Label(text="Password:")
 password_label.grid(row=3, column=0)
 
 # entries
-website_entry = Entry(width=39)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=28)
+website_entry.grid(row=1, column=1, columnspan=1)
 website_entry.focus()
 email_entry = Entry(width=39)
 email_entry.grid(row=2, column=1, columnspan=2)
@@ -157,10 +165,13 @@ email_entry.insert(0, "example@gmail.com")
 password_entry = Entry(width=28)
 password_entry.grid(row=3, column=1)
 
+
 # buttons
 generate_password_button = Button(text="Generate", command=generate_password)
 generate_password_button.grid(row=3, column=2)
 add_button = Button(text="Add", width=36, command=save)
 add_button.grid(row=4, column=1, columnspan=2)
+search_button = Button(text="Search", width=8, command=find_password)
+search_button.grid(row=1, column=2)
 
 window.mainloop()
