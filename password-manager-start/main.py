@@ -107,18 +107,24 @@ def save():
             message=f"These are the details entered:\nEmail: {email}\nPassword: {password}\nIs it ok the save?",
         )
         if is_ok:
-            with open("data.json", "r") as file:
-                # Reading old data
-                data = json.load(file)
-                # Updating old data with new data
+            try:
+                with open("data.json", "r") as file:
+                    # Reading old data
+                    data = json.load(file)
+                    # Updating old data with new data
+                    data.update(new_data)
+            except FileNotFoundError:
+                with open("data.json", "w") as file:
+                    json.dump(new_data, file, indent=4)
+            else:
+                # Update old data with new data
                 data.update(new_data)
-
-            with open("data.json", "w") as file:
-                # Saving updated data
-                json.dump(data, file, indent=4)
-
-            website_entry.delete(0, "end")
-            password_entry.delete(0, "end")
+                with open("data.json", "w") as file:
+                    # Saving updated data
+                    json.dump(data, file, indent=4)
+            finally:
+                website_entry.delete(0, "end")
+                password_entry.delete(0, "end")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
