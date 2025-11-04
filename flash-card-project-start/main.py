@@ -25,6 +25,11 @@ def flip_card():
     canvas.itemconfig(card_background, image=back_image)
 
 
+def is_known():
+    to_learn.remove(current_card)
+    next_card()
+
+
 # window
 window = Tk()
 window.title("Flashy")
@@ -49,7 +54,7 @@ card_word = canvas.create_text(400, 150, text="", font=("Ariel", 40, "italic"))
 card_title = canvas.create_text(400, 263, text="", font=("Ariel", 40, "italic"))
 
 # buttons
-button_right = Button(image=right_image, highlightthickness=0, command=next_card)
+button_right = Button(image=right_image, highlightthickness=0, command=is_known)
 button_right.grid(column=0, row=1)
 button_wrong = Button(image=wrong_image, highlightthickness=0, command=next_card)
 button_wrong.grid(column=1, row=1)
