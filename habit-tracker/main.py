@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 import os
 
 USERNAME = os.environ.get("HT_USERNAME")
@@ -39,10 +40,30 @@ graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
 pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
+today = datetime(year=2025, month=11, day=19)
+# print(today.strftime("%Y%m%d"))
+
 pixel_data = {
-    "date": "20251119",
-    "quantity": "3.00",
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "15",
 }
 
-response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+# print(response.text)
+
+update_endpoint = (
+    f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+)
+
+new_pixel_data = {"quantity": "4.5"}
+
+# response = requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
+# print(response.text)
+
+
+delete_endpoint = (
+    f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+)
+
+response = requests.delete(url=delete_endpoint, headers=headers)
 print(response.text)
