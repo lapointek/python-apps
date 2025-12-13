@@ -6,5 +6,9 @@
     "amazon": {
         "email": "example@gmail.com",
         "password": "asda2134123as"
+    },
+    "test@gmail.com": {
+        "email": "example@gmail.com",
+        "password": "r7&Xi1C$4dozT2"
     }
 }

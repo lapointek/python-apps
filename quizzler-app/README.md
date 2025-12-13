@@ -1,0 +1,7 @@
+## Description
+
+A Python quiz game built with Tkinter that retrieves questions from an external API. The GUI-based game tests the user’s knowledge in a topic and provides immediate feedback, demonstrating GUI programming and API integration in Python.
+
+![Quiz Game](https://github.com/lapointek/python-tkinter-apps/quizzler-app/blob/main/images/quizgame1.png?raw=true)
+<br><br>
+![Quiz Game](https://github.com/lapointek/python-tkinter-apps/quizzler-app/blob/main/images/quizgame2.png?raw=true)
